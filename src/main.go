@@ -4,40 +4,19 @@ import "fmt"
 
 func main() {
 
-	// Square area
-	const baseCuadrado = 10
-	areaCuadrado := baseCuadrado * baseCuadrado
-	fmt.Println("Area cuadrado:", areaCuadrado)
+	// Println
+	var num uint8 = 200
+	fmt.Println(num)
 
-	x := 10
-	y := 50
+	// Printf
+	var num2 int8 = 100
+	var store string = "MarketPlace"
+	fmt.Printf("There are %d in the %s\n", num2, store)
+	var data string = "To know the data type..."
+	fmt.Printf("Data type: %T\n", data)
 
-	// Sum
-	result := x + y
-	fmt.Println("Suma:", result)
+	// Sprintf
+	message := fmt.Sprintf("Guarda el valor, no lo imprime... %d", num)
+	fmt.Println(message)
 
-	// Subtract
-	result = y - x
-	fmt.Println("Resta:", result)
-
-	// Multiplication
-	result = x * y
-	fmt.Println("Multiplicación:", result)
-
-	// Division
-	result = y / x
-	fmt.Println("División:", result)
-
-	// Module
-	result = y % x
-	fmt.Println("Modulo:", result)
-
-	// Incremental
-	x++
-	fmt.Println("Incremental:", x)
-
-	// Decremental
-	x--
-	fmt.Println("Decremental:", x)
-	
 }
