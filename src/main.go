@@ -4,23 +4,40 @@ import "fmt"
 
 func main() {
 
-	// Constants declaration
-	const pi float64 = 3.14
-	const pi2 = 3.1415
-	fmt.Println("pi:", pi)
-	fmt.Println("pi2:", pi2)
+	// Square area
+	const baseCuadrado = 10
+	areaCuadrado := baseCuadrado * baseCuadrado
+	fmt.Println("Area cuadrado:", areaCuadrado)
 
-	// Integer declaration
-	var altura int = 10
-	var base int
-	altura2 := 20
-	fmt.Println(altura, base, altura2)
+	x := 10
+	y := 50
 
-	// Zero values
-	var a int
-	var b float64
-	var c string
-	var d bool
-	fmt.Println(a, b, c, d)
+	// Sum
+	result := x + y
+	fmt.Println("Suma:", result)
 
+	// Subtract
+	result = y - x
+	fmt.Println("Resta:", result)
+
+	// Multiplication
+	result = x * y
+	fmt.Println("Multiplicación:", result)
+
+	// Division
+	result = y / x
+	fmt.Println("División:", result)
+
+	// Module
+	result = y % x
+	fmt.Println("Modulo:", result)
+
+	// Incremental
+	x++
+	fmt.Println("Incremental:", x)
+
+	// Decremental
+	x--
+	fmt.Println("Decremental:", x)
+	
 }
