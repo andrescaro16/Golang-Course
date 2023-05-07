@@ -1,24 +1,22 @@
 package main
 
-import (
-	"fmt"
-	"github.com/andrescaro16/Golang-Course/figures"
-)
-
+import "fmt"
 
 func main() {
 
-	square := figures.NewSquare(4)
-	fmt.Println(square)
+	valores := []interface{}{1, "Hola", 3.14}
 
-	rectangle := figures.NewRectangle(8, 4)
-	fmt.Println(rectangle)
-
-	// Before the interfaces:
-	// fmt.Println(square.Area())
-	// fmt.Println(rectangle.Area())
-
-	// Now with interfaces:
-	figures.Calculate(square)
-	figures.Calculate(rectangle)
+	for _, valor := range valores {
+		switch v := valor.(type) {
+		case int:
+			fmt.Printf("Entero: %d\n", v)
+		case string:
+			fmt.Printf("Cadena: %s\n", v)
+		case float64:
+			fmt.Printf("Flotante: %f\n", v)
+		default:
+			fmt.Println("Tipo desconocido")
+		}
+	}
+	
 }
