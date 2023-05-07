@@ -1,20 +1,21 @@
+// 1. "go mod init <module-name>"
+// 2. Create the folder with the .go file
+// 3. "go mod tidy" to update the go.mod
+
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type car struct {
-	brand string
-	year  int
-}
+	"github.com/andrescaro16/Golang-Course/transport"
+)
 
 func main() {
-	
-	myCar := car{brand: "Ford", year: 2020}
+
+	var myCar transport.Car
+	myCar.Brand = "Tesla"
 	fmt.Println(myCar)
 
-	// Other way
-	var otherCar car
-	otherCar.brand = "Ferrari"
-	fmt.Println(otherCar)
+	transport.PrintMessage("Hey")
 
 }
