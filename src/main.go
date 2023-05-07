@@ -1,91 +1,37 @@
 package main
 
-import "fmt"
-
-func preFor() int {
-	fmt.Println("prefor i")
-	return 0
-}
-func postFor(i int) int {
-	fmt.Println("postFor sumemos i")
-	i++
-	return i
-}
-func condicion(i int) bool {
-	fmt.Println("condicion i")
-	return (i < 10)
-}
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
 func main() {
+	
+	valor1 := 1
+	valor2 := 2
 
-	// Conditional for
-	for i := 10; i > 0; i-- {
-		fmt.Println(i)
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
 	}
 
-	// While for
-	var counter uint8 = 2
-	for counter <= 10 {
-		fmt.Println(counter)
-		counter++
+	// AND
+	if valor1 == 1 && valor2 == 3 {
+		fmt.Println("Es verdad")
 	}
 
-	// Forever for
-	// for {
-	// 	fmt.Println("Hi")
-	// }
-
-	// Range for
-	arreglo := [...]int{0, 1, 4, 6, 10, 9}
-	fmt.Println("Arreglo:", arreglo)
-
-	fmt.Println("Primer ejemplo")
-	for i, j := range arreglo {
-		fmt.Printf("indice i: %d tiene como valor #%d\n", i, j)
+	// OR
+	if valor1 == 0 || valor2 == 2 {
+		fmt.Println("Es verdad, OR")
 	}
 
-	fmt.Println("Segundo ejemplo")
-	for i := range arreglo {
-		fmt.Printf("Valor de i: %d\n", i)
+	// Text to number
+	value, err := strconv.Atoi("53")
+	if err != nil {
+		log.Fatal(err)
 	}
-
-	fmt.Println("Tercer ejemplo")
-	for _, j := range arreglo {
-		fmt.Printf("Valor de i: %d\n", j)
-	}
-
-	// for with functions
-	for i := preFor(); condicion(i); i = postFor(i) {
-		fmt.Printf("Valor de i: %d", i)
-		if i == 7 {
-			fmt.Printf(" así que saldremos del ciclo...\n")
-			break /// este ejemplo es para usar el break
-		}
-		fmt.Printf("\n")
-	}
-	fmt.Println("-------------------------------------------------------------")
-
-	// for using goto tags
-	var i int
-CICLO:
-	fmt.Println("estamos fuera del for")
-	for i < 10 {
-		if i == 6 {
-			i = i + 3
-			fmt.Println("Saltando a etiqueta CICLO con i = i + 3")
-			goto CICLO2
-		}
-		fmt.Printf("Valor de i: %d\n", i)
-		i++
-	}
-CICLO2:
-	fmt.Printf("ciclo 2 Valor de i: %d\n", i)
-	if i == 9 {
-		fmt.Printf("Valor de i: %d\n", i)
-		i = i + 3
-		fmt.Println("Saltando a etiqueta CICLO con i = i + 3")
-		goto CICLO
-	}
-	fmt.Printf("terminamos\n")
+	fmt.Println("Value:", value)
 
 }
