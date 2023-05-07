@@ -3,23 +3,26 @@ package main
 import "fmt"
 
 func main() {
+	
+	// Defer
+	defer fmt.Println("Hola")
+	fmt.Println("Mundo")
 
-	// With condition
-	switch module := 4 % 2; module {
-	case 0:
-		fmt.Println("Es par")
-	default:
-		fmt.Println("Es impar")
+	// Continue y break
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+
+		// Continue
+		if i == 2 {
+			fmt.Println("Es 2")
+			continue
+		}
+
+		// Break
+		if i == 8 {
+			fmt.Println("Break")
+			break
+		}
 	}
 
-	// Without condition
-	value := 50
-	switch {
-	case value > 100:
-		fmt.Println("Es mayor a 100")
-	case value < 0:
-		fmt.Println("Es menor a 0")
-	default:
-		fmt.Println("No condicion")
-	}
 }
