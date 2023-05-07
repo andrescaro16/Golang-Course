@@ -1,21 +1,33 @@
-// 1. "go mod init <module-name>"
-// 2. Create the folder with the .go file
-// 3. "go mod tidy" to update the go.mod
-
 package main
 
 import (
 	"fmt"
-
-	"github.com/andrescaro16/Golang-Course/transport"
+	"github.com/andrescaro16/Golang-Course/pc"
 )
+
 
 func main() {
 
-	var myCar transport.Car
-	myCar.Brand = "Tesla"
-	fmt.Println(myCar)
+	a := 50
+	b := &a				// & to access the memory address
 
-	transport.PrintMessage("Hey")
+	fmt.Println(b)
+	fmt.Println(*b)		//* to access the value in that address
+
+	*b = 100
+	fmt.Println(a)
+
+	myPC := pc.Pc{Ram: 16, Disk: 200, Brand: "msi"}
+	fmt.Println(myPC)
+
+	myPC.Ping()
+
+	fmt.Println(myPC)
+	myPC.DuplicateRAM()
+
+	fmt.Println(myPC)
+	myPC.DuplicateRAM()
+
+	fmt.Println(myPC)
 
 }
