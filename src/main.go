@@ -2,32 +2,23 @@ package main
 
 import (
 	"fmt"
-	"github.com/andrescaro16/Golang-Course/pc"
+	"github.com/andrescaro16/Golang-Course/figures"
 )
 
 
 func main() {
 
-	a := 50
-	b := &a				// & to access the memory address
+	square := figures.NewSquare(4)
+	fmt.Println(square)
 
-	fmt.Println(b)
-	fmt.Println(*b)		//* to access the value in that address
+	rectangle := figures.NewRectangle(8, 4)
+	fmt.Println(rectangle)
 
-	*b = 100
-	fmt.Println(a)
+	// Before the interfaces:
+	// fmt.Println(square.Area())
+	// fmt.Println(rectangle.Area())
 
-	myPC := pc.Pc{Ram: 16, Disk: 200, Brand: "msi"}
-	fmt.Println(myPC)
-
-	myPC.Ping()
-
-	fmt.Println(myPC)
-	myPC.DuplicateRAM()
-
-	fmt.Println(myPC)
-	myPC.DuplicateRAM()
-
-	fmt.Println(myPC)
-
+	// Now with interfaces:
+	figures.Calculate(square)
+	figures.Calculate(rectangle)
 }
