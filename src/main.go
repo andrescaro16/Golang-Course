@@ -1,17 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func say(text string, channel chan<- string) {
+func interaction(channel chan string)  {
+	var text string
+	fmt.Scanln(&text)
 	channel <- text
 }
 
-func main() {
+func main()  {
 	channel := make(chan string, 1)
-
-	fmt.Println("Hello")
-
-	go say("Bye", channel)
-
-	fmt.Println(<-channel)
+	go interaction(channel)
+	message := <- channel
+	fmt.Println(message)
 }
