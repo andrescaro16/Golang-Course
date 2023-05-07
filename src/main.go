@@ -1,25 +1,17 @@
 package main
-import (
-	"fmt"
-	"sync"
-)
 
-func print(text string, wg *sync.WaitGroup)  {
-	defer wg.Done()
-	fmt.Println(text)
+import "fmt"
+
+func say(text string, channel chan<- string) {
+	channel <- text
 }
 
-func counter(wg *sync.WaitGroup)  {
-	defer wg.Done()
-	for i:= 0; i<10; i++ {
-		fmt.Println(i)
-	}
-}
+func main() {
+	channel := make(chan string, 1)
 
-func main()  {
-	var wg sync.WaitGroup
-	wg.Add(2)
-	go print("Hola", &wg)
-	go counter(&wg)
-	wg.Wait()
+	fmt.Println("Hello")
+
+	go say("Bye", channel)
+
+	fmt.Println(<-channel)
 }
